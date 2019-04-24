@@ -7,6 +7,46 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ListView ItemsSource="{Binding animals}"  x:Name="AnimalListView" Margin="0,30,0,0">
+            <ListView.View>
+                <GridView AllowsColumnReorder="true">
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}"  Width="200" Header="Name"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Energy}" Width="200" Header="Energy"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Species}" Width="200" Header="Species"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Gender}" Width="200" Header="Gender"/>
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="AddMonkey" Content="Add Monkey" Click="AddMonkey_Click"/>
+            <Button Grid.Column="1" x:Name="AddLion" Content="Add Lion" Click="AddLion_Click"/>
+            <Button Grid.Column="2" x:Name="AddElephant" Content="Add Elephant" Click="AddElephant_Click"/>
+            <Button Grid.Column="3" x:Name="FeedAll" Content="Feed all" Click="FeedAll_Click"/>
+            <Button Grid.Column="4" x:Name="FeedMonkey" Content="Feed monkeys" Click="FeedMonkey_Click"/>
+            <Button Grid.Column="5" x:Name="FeedLion" Content="Feed lions" Click="FeedLion_Click"/>
+            <Button Grid.Column="6" x:Name="FeedElephant" Content="Feed elephants" Click="FeedElephant_Click"/>
+        </Grid>
+        <Border HorizontalAlignment="Left" Margin="5,2,2,0" Height="26" VerticalAlignment="Top" Width="400" BorderThickness="2" BorderBrush="Black">
+            <Border x:Name="TimeBar"  Background="Gray" Width="0"/>
+        </Border>
     </Grid>
 </Window>
